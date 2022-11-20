@@ -1,4 +1,4 @@
-# STEGANOTDD - Exercice for practising test driven development
+# Stegano TDD - Exercice for practising test driven development
 
 ## What is steganography
 Steganography consist in hidding information inside a media.
@@ -18,27 +18,28 @@ What are the limitations:
 ## What is our algorithm ?
 ### Hide text inside image
 * Convert text message to binary string (a string composed of '010101100...')
-convertToBit(msg) returns the binary string
+`convertToBit(msg)` returns the binary string
 * Get the list of pixel colors
-getImage(image, bitStringLength) returns a list of by value (the image pixel colors) (a list composed of byte size digits [45, 23, 78, 34, ...]).
+`getImage(image, bitStringLength)` returns a list of by value (the image pixel colors) (a list composed of byte size digits [45, 23, 78, 34, ...]).
 The image is read by line first and then by colomn.
 The return list has a length greater or equal to the length of the binary strin.
 The return list has a length multiple of 3 (when processing one pixel, we always take the 3 colors).
 * Add each value of the binary string to respectively each value of the pixel color list
-addList(colorList, binaryString) returns the pixel color list update by adding the binary string value.
+`addList(colorList, binaryString)` returns the pixel color list update by adding the binary string value.
 This is the list of pixel color which includes the hidden message.
 With the examples above the result will be [45+0, 23+1, 78+0, 34+1, ...]
 * Write a copy of the original image as stegano image with list of new colors provided
-writeImage(originalImage, steganoImage, rgbString) does not return any value.
+`writeImage(originalImage, steganoImage, rgbString)` does not return any value.
 * Execute all the steps above
-steganoTo(message, originalImage, steganoImage) prints a confirmation that message has been hidden in stegano image
+`steganoTo(message, originalImage, steganoImage)` prints a confirmation that message has been hidden in stegano image
 
 ### Retrieve text from image
 * Get message binary string by comparing stegano image with original image.
-getStegano(originalImage, steganoImage) return a binary string
+`getStegano(originalImage, steganoImage)` return a binary string
 * Decode the binary string as text
-decodeBitString(bitString) return a string with the message
+`decodeBitString(bitString)` return a string with the message
 
 ## How to run
+* Add required modules: `pip install -r requirements.txt`
 * To execute code: `py stegano/stegano.py`
 * To execute tests: `py -m pytest -v tests`
