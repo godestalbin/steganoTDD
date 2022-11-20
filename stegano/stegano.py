@@ -30,13 +30,14 @@ def getImage(image, bitStringLength):
         if len(rgbList) > bitStringLength: break
     return rgbList  #[:bitStringLength]
 
-# Add elements of list1 to list2 and return the result
-# list1=[int1, int2,...] 
+# Add respectively elements of binaryString to colorList and return the result
+# colorList=[int1, int2,...] 
 # binaryString = '1010...'
-def addList(list1, binaryString):
+# result=[int1+1, int2+0,...]
+def addList(colorList, binaryString):
     addedList = []
-    for i in range(len(list1)):
-        addedList += [list1[i] + (int(binaryString[i]) if i < len(binaryString) else 0)]
+    for i in range(len(colorList)):
+        addedList += [colorList[i] + (int(binaryString[i]) if i < len(binaryString) else 0)]
     return addedList
 
 # Get original image
